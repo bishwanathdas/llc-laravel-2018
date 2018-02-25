@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','StaticController@showWelcome')->name('home');
+Route::get('/tour','StaticController@showTour')->name('tour');
+
+Route::get('/product','StaticController@showProduct')->name('product');
+
+Route::post('/ProductInsert','StaticController@AddProduct')->name('prod');
+
+
+
+Route::get('/contact','StaticController@showContact');
+
+Route::redirect('/contact','/',301);
+
+
+// https://www.youtube.com/watch?v=C5pS0PoHcrU

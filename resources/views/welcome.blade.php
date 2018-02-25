@@ -79,7 +79,23 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Lets learn coding: Learn Laravel from scratch-Class01
+                Lets learn coding: Learn Laravel from scratch-Class01
+                    
+                    <div>
+                    {{$today}} {{$time}}
+                    
+                    
+                    <div>
+                        <p> {{ $location['city'] . ' ' .$location['country'] }} </p>    
+                    </div>
+
+
+                    </div>
+
+
+                    
+
+
                 </div>
 <!-- 
                 <div class="links">

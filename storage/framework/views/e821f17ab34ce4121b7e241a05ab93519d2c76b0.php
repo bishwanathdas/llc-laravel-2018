@@ -79,7 +79,25 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Lets learn coding: Learn Laravel from scratch-Class01
+                Lets learn coding: Learn Laravel from scratch-Class01
+                    
+                    <div>
+                    <?php echo e($today); ?> <?php echo e($time); ?>
+
+                    
+                    
+                    <div>
+                        <p> <?php echo e($location['city'] . ' ' .$location['country']); ?> </p>    
+                    </div>
+
+
+
+                    </div>
+
+
+                    
+
+
                 </div>
 <!-- 
                 <div class="links">
