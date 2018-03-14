@@ -12,16 +12,16 @@
 */
 
 Route::get('/','StaticController@showWelcome')->name('home');
+Route::post('/', 'UserController@register')->name('register');
+
+
 Route::get('/tour','StaticController@showTour')->name('tour');
-
 Route::get('/product','StaticController@showProduct')->name('product');
-
 Route::post('/ProductInsert','StaticController@AddProduct')->name('prod');
 
 
 
 Route::get('/contact','StaticController@showContact');
-
 Route::redirect('/contact','/',301);
 
 

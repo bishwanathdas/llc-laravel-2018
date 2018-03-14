@@ -6,10 +6,57 @@
 
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
       <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 class="display-4 font-weight-normal">Punny headline</h1>
+      
+            <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+                {!! csrf_field() !!}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Enter email">
+                    @if($errors->has('email'))
+                        <span class="label label-danger">
+                            {{ $errors->first('email') }}
+                        </span>
+                    @endif
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputUsername">Username</label>
+                    <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username">
+                    @if($errors->has('username'))
+                        <span class="label label-danger">
+                            {{ $errors->first('username') }}
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password">
+                    @if($errors->has('password'))
+                        <span class="label label-danger">
+                            {{ $errors->first('password') }}
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPhoto">Profile Photo</label>
+                    <input type="file" class="form-control" name="profile_photo">
+                    @if($errors->has('profile_photo'))
+                        <span class="label label-danger">
+                            {{ $errors->first('profile_photo') }}
+                        </span>
+                    @endif
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+
+
+ <!--        <h1 class="display-4 font-weight-normal">Punny headline</h1>
         <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>
         <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+ -->
+
       </div>
+
       <div class="product-device box-shadow d-none d-md-block"></div>
       <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
     </div>
