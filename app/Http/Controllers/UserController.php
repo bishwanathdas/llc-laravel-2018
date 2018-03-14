@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Http\Request;
+use Validator;
 
 class UserController extends Controller
 {
@@ -40,7 +42,7 @@ class UserController extends Controller
         session()->flash('message', 'User registered successfully.');
 
         return redirect()->back();*/
-        
+
     }
 
 }
