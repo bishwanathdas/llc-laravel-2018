@@ -6,9 +6,22 @@
 
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
       <div class="col-md-5 p-lg-5 mx-auto my-5">
+
+      
+            @if (session()->has('message'))
+
+            <div class="alert alert-success">
+
+            {{ session('message') }}
+
+            </div>
+
+            @endif
+
       
             <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                 {!! csrf_field() !!}
+                
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Enter email">
@@ -19,6 +32,7 @@
                     @endif
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
+
                 <div class="form-group">
                     <label for="exampleInputUsername">Username</label>
                     <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username">
@@ -40,14 +54,17 @@
                 <div class="form-group">
                     <label for="exampleInputPhoto">Profile Photo</label>
                     <input type="file" class="form-control" name="profile_photo">
+                    
                     @if($errors->has('profile_photo'))
                         <span class="label label-danger">
                             {{ $errors->first('profile_photo') }}
                         </span>
                     @endif
+
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
+
 
 
  <!--        <h1 class="display-4 font-weight-normal">Punny headline</h1>
