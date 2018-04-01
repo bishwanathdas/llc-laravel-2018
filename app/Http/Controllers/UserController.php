@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Validator;
 use DB;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -34,15 +35,28 @@ class UserController extends Controller
 
 
         //create  user using query builder
-        $db = DB::table('users')->insert([
+        /*$db = DB::table('users')->insert([
 
             'email'=> trim($request->input('email')),
             'username'=>trim($request->input('username')),
             //'password'=>hash::make($request->input('password')),
             'password'=>bcrypt($request->input('password')),
             'profile_photo'=>$path,
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()
 
             ]);
+*/
+
+        //create  user using ORM
+        $db = User::create([
+            'email'=> trim($request->input('email')),
+            'username'=>trim($request->input('username')),
+            //'password'=>hash::make($request->input('password')),
+            'password'=>bcrypt($request->input('password')),
+            'profile_photo'=>$path
+            ]);
+        
 
         if($db){
 
