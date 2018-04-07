@@ -1,17 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Users;
+//namespace App\Http\Controllers\UserController;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use Validator;
 use DB;
 use Carbon\Carbon;
 
+
+
 class UserController extends Controller
 {
     //
+
+        //
 
     public function register(Request $request)
     {
@@ -32,6 +38,8 @@ class UserController extends Controller
         // save the file
         $profile_photo = $request->file('profile_photo');
         $path = $profile_photo->store('profile_photo');
+
+        dd($path);
 
 
         //create  user using query builder
@@ -77,7 +85,17 @@ class UserController extends Controller
         session()->flash('message', 'User registered successfully.');
 
         return redirect()->back();*/
+    }
 
+
+    public function showUsersList()
+    {
+        $data = [];
+        $data['users'] = User::all();
+        
+        //dd($data);
+
+        return view('frontend.home', $data);
     }
 
 }

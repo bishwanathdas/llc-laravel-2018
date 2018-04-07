@@ -1,21 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
 use Illuminate\Http\Request;
 
 class StaticController extends Controller
 {
+
+    public function _construct(){
+
+    }
+    
     //
     public function showWelcome()
     {
 
 
-    	$data=[];
+    	    $data=[];
 
-    		$data['today']=date('d-m-Y');
-    		$data['time']=date('H:i:s');
-    		$data['location']=['city'=>'Dhaka','country'=>'Bangladesh'];
+    		//$data['today']=date('d-m-Y');
+    		//$data['time']=date('H:i:s');
+    		//$data['location']=['city'=>'Dhaka','country'=>'Bangladesh'];
+
+            $data['users'] = User::all();
 
 
     	/*$today=date('d-m-Y');
@@ -25,7 +33,7 @@ class StaticController extends Controller
     	
     	//return view('home',$data);
 
-    	return view('home',$data);
+    	return view('frontend.home',$data);
 
     	//return view('welcome')->with($data);
 
