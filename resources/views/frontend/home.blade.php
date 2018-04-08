@@ -74,8 +74,8 @@
                         <tr>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
-                            <td><img src="{{ url($user->profile_photo) }}" width="75"></td>
-                            <td><a class="label label-info" href="{{ route('users.details', $user->id) }}">Edit</a></td>
+                            <td><img src="{{ url('images/' . $user->profile_photo) }}" width="75"></td>
+                            <!-- <td><a class="label label-info" href="{{ route('users.details', $user->id) }}">Edit</a></td> -->
                         </tr>
                     @endforeach
                     </tbody>

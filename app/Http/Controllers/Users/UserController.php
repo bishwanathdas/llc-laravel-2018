@@ -39,7 +39,8 @@ class UserController extends Controller
         $profile_photo = $request->file('profile_photo');
         $path = $profile_photo->store('profile_photo');
 
-        dd($path);
+        //dd($path);
+        //dd($profile_photo);
 
 
         //create  user using query builder
